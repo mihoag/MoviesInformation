@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Container">
+        <div class="Container">
+            <!--Header-->
+            <div class="header">
+                <div class="idSt">21120457</div>
+                <div class="titleHeader">Movie Information</div>
+                <div class="setting">
+                    <div>21457</div>
+                    <div class="form-check form-switch" id="darkModeSwitch-form">
+                        <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+                        <label class="form-check-label" for="darkModeSwitch" id="iconMode"><i
+                                class="fa-regular fa-sun"></i></label>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Nav-->
+            <div class="navbar">
+                <a href="/" class="navTitle"><i class="fa-solid fa-house"></i></a>
+                <a href="/fav" class="fav" style="text-decoration: none;">21457</a>
+                <form class="d-flex" role="search">
+                    <select name="type" class="form-select" required>
+                        <option value="actor">Actor</option>
+                        <option value="movie" selected>Movie</option>
+                    </select>
+                    <input v-model="keyword" class="form-control me-2" type="search" placeholder="Search"
+                        aria-label="Search">
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+
+            <!--Movie detail-->
+            <div class="movieDetail">
+                <div id="detail" class="container-fluid d-flex mt-4">
+                    21457{for m in detailMovie}
+                    <div class="poster mx-4">
+                        <img src="21457{m.image}">
+                    </div>
+                    <div class="border-movie-info">
+                        <div class="title" style="font-size:2em;">21457{m.fulltitle}</div>
+                        <div class="movie-meta-info container-fluid mt-2 py-1 px-2">
+
+                            <div class="movie-dt">Year: </div>
+                            <div class="movie-dd">21457{m.year}</div>
+                            <br>
+                            <div class="movie-dt">Release date: </div>
+                            <div class="movie-dd">21457{m.releasedate}</div>
+                            <br>
+                            <div class="movie-dt">Genre: </div>
+                            <div class="movie-dd">21457{m.genrelist}</div>
+                            <br>
+                            <div class="movie-dt">Rating: </div>
+                            <div class="movie-dd">21457{m.imdbrating}</div>
+                            <br>
+                            <div class="movie-dt">Box office: </div>
+                            <div class="movie-dd">$ 21457{m.boxoffice}</div>
+                            <br>
+
+
+                        </div>
+
+                        <div class="plot container-fluid mt-2 py-1 px-2">
+                            <div class="plot-title">Plot: </div>
+                            <span class="plot-content" v-if="item !== null">21457{m.plot}</span>
+                        </div>
+                        {/for}
+                        <div class="plot container-fluid mt-2 py-1 px-2">
+                            <div class="movie-dt">Actor: </div>
+                            21457{for actor in listActor}
+                            <a href="/detailActor?id=21457{actor.actorid}" style="cursor: pointer;"
+                                class="movie-dd">21457{actor.name}</a>
+                            {/for}
+                            <br>
+                        </div>
+
+                        <a type="button" href="/fav/insert/21457{id}" class="btn btn-primary mt-2">Add to list favorite
+                            movies</a>
+                    </div>
+                </div>
+            </div>
+            <h3 class="reviews">Reviews</h3>
+            <div class="card darkmode">
+                <h5 class="card-header fav" id="title">Title</h5>
+                <div class="card-body fav">
+                    <h5 class="card-title fav" id="cardtitle">Username <br /> Date <br /> Rate</h5>
+                    <p class="card-text fav" id="content">Content</p>
+                </div>
+            </div>
+            <!--Phan trang-->
+            <nav aria-label="Page navigation example mt-5">
+                <ul class="pagination" id="pages">
+
+                    <li class="page-item">
+                        <a class="page-link disabled" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>
+                    <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+            <!--Footer-->
+            <div class="header" style="height: 40px;">
+                <div class="idSt">21120457</div>
+                <div class="titleHeader">Movies info</div>
+                <div class="setting">
+                    <div>21457</div>
+                </div>
+            </div>
+        </div>
+
+        <input id="id" hidden type="text" value="21457{id}">
+</body>
+
+</html>
+<script>
+    const darkModeSwitch = $('#darkModeSwitch')
+    function getMediaPreference() {
+        const hasDarkPreference = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+        if (hasDarkPreference) {
+            return "dark-theme"
+        } else {
+            return "light-theme"
+        }
+    }
+    // lấy màu nền lưu ở trạng thái trước
+    function getTheme() {
+        return localStorage.getItem("user-theme")
+    }
+    function setTheme(theme) {
+        localStorage.setItem("user-theme", theme)
+
+        this.userTheme = theme
+        document.documentElement.className = theme
+
+        const darkModeSwitch = document.getElementById("darkModeSwitch")
+        if (theme === "dark-theme") {
+            darkModeSwitch.checked = true
+        } else {
+            darkModeSwitch.checked = false
+        }
+    }
+    const initUserTheme = getTheme() || getMediaPreference()
+    let icon = document.getElementById("iconMode");
+    function setTheme(theme) {
+        localStorage.setItem("user-theme", theme)
+
+        this.userTheme = theme
+        document.documentElement.className = theme
+
+        const darkModeSwitch = document.getElementById("darkModeSwitch")
+        if (theme === "dark-theme") {
+            icon.innerHTML = `<i class="fa-regular fa-moon"></i>`
+            darkModeSwitch.checked = true
+        } else {
+            icon.innerHTML = `<i class="fa-regular fa-sun"></i>`;
+            darkModeSwitch.checked = false
+        }
+    }
+    $(darkModeSwitch).change(function (e) {
+        e.preventDefault();
+        toggleTheme();
+    });
+
+    function handleClick(page) {
+        //console.log(page.getAttribute("id"));
+        let ip = document.getElementById('id');
+        //console.log(ip);
+        let id = ip.value;
+        data = { id: id, currentPage: page.getAttribute("id") }
+        $.ajax({
+            type: "GET",
+            url: "/review",
+            data: data,
+            contentType: 'application/json',
+            dataType: "json",
+            success: function (data) {
+
+                //console.log(data);
+                let totalPage = data.totalPage;
+                let currentPage = data.currentPage;
+                let listreview = data.listreview;
+                //console.log(data.listreview);
+                renderPagination(totalPage, currentPage);
+                renderReviews(listreview[0]);
+            },
+            error: function (result) {
+
+                console.log(result);
+            }
+        });
+
+
+    }
+
+    var page = document.getElementById("pages");
+    function renderPagination(totalPage, currentPage) {
+
+        let pages = ` <li class="page-item">
+                        <a class="page-link disabled" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                        </a>
+                    </li>`;
+        for (let i = 1; i <= totalPage; i++) {
+            if (i == currentPage) {
+                pages += `<li class="page-item  active">
+                        <a class="page-link" id='${i}'  onclick="handleClick(this)" >${i}</a>
+                        </li>`;
+            }
+            else {
+                pages += `<li class="page-item">
+                        <a class="page-link" id='${i}'  onclick="handleClick(this)" >${i}</a>
+                        </li>`;
+            }
+        }
+        pages += ` <li class="page-item">
+                        <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>`
+        //console.log(pages);
+        //console.log(page);
+        page.innerHTML = pages;
+    }
+
+
+    function renderReviews(reviews) {
+        //console.log(reviews);
+        let title = document.getElementById('title');
+        let cardtitle = document.getElementById('cardtitle');
+        let content = document.getElementById('content');
+
+        title.innerHTML = reviews.title;
+        cardtitle.innerHTML = ` Username : ${reviews.username} <br/> Date:  ${reviews.date} <br/> Rate:  ${reviews.rate}`;
+        content.innerHTML = reviews.content;
+    }
+    document.addEventListener('DOMContentLoaded', function () {
+        // su dung ajax de phan trang va render review
+        let ip = document.getElementById('id');
+        //console.log(ip);
+        let id = ip.value;
+        console.log(id);
+        data = { id: id }
+        $.ajax({
+            type: "GET",
+            url: "/review",
+            data: data,
+            contentType: 'application/json',
+            dataType: "json",
+            success: function (data) {
+
+                //console.log(data);
+                let totalPage = data.totalPage;
+                let currentPage = data.currentPage;
+                let listreview = data.listreview;
+                //console.log(data.listreview);
+                renderPagination(totalPage, currentPage);
+                renderReviews(listreview[0]);
+
+            },
+            error: function (result) {
+
+                console.log(result);
+            }
+        });
+
+
+        //let pageitems = document.getElementsByClassName("page-link");
+        //console.log(pageitems);
+
+    })
+
+</script>

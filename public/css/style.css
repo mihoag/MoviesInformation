@@ -1,0 +1,299 @@
+:root {
+    --background-color-primary: #d0cccc;
+    --background-color-secondary: #fffcfc;
+    --text-primary-color: #000;
+}
+
+
+:root.dark-theme {
+    --background-color-primary: #141414;
+    --background-color-secondary: #212429;
+    --text-primary-color: #FFF;
+}
+
+body {
+    background-color: var(--background-color-primary) !important;
+    color: var(--text-primary-color);
+}
+
+
+
+.Container {
+    max-width: 1200px;
+    margin: auto;
+    background: var(--background-color-primary);
+    padding: 1px 1px 1px 1px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    font-size: 1em;
+    margin: 4px 3px 3px 3px;
+    border-radius: 5px;
+    background-color: var(--background-color-secondary);
+    color: var(--text-primary-color);
+    border: 1px solid var(--text-primary-color);
+}
+
+.setting {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: space-between;
+    margin-right: 5px;
+}
+
+.titleHeader {
+    font-size: 1.5em;
+    font-weight: 600;
+}
+
+
+
+#darkModeSwitch-form label {
+    margin-left: 4px;
+}
+
+.navbar {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 1em;
+    margin: 11px 2px 2px 2px;
+    border-radius: 5px;
+    background-color: var(--background-color-secondary);
+    border: 1px solid var(--text-primary-color);
+}
+
+.navTitle {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding-left: 10px;
+    font-size: large;
+    font-weight: 500;
+    cursor: pointer;
+    color: var(--text-primary-color);
+}
+
+.navbar form {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    padding-right: 10px;
+}
+
+.imgMovie {
+    width: 30%;
+}
+
+.carousel-inner {
+    display: flex;
+    justify-content: center;
+}
+
+.movieDetail {
+    color: var(--text-primary-color);
+}
+
+
+
+.listMovie {
+    margin-top: 10px;
+}
+
+.fav {
+    color: var(--text-primary-color);
+}
+
+.darkmode {
+    background-color: var(--background-color-secondary) !important;
+
+}
+
+.topTitle {
+    margin: 15px 0px 0px 5px;
+    font-size: 1.3em;
+    font-weight: 600;
+    color: var(--text-primary-color);
+}
+
+.carousel-item img:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+}
+
+.carousel-item .ctn div:hover {
+    -ms-transform: scale(1.5);
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+    cursor: pointer;
+}
+
+.mostPopularFilm #img1 {
+    cursor: pointer;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.indicate {
+    position: absolute !important;
+    top: 2px !important;
+}
+
+.FooterMovie {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    height: 40px;
+    font-size: 1em;
+    margin: 30px 3px 3px 3px;
+    border-radius: 5px;
+    background-color: var(--background-color-secondary);
+    padding-left: 5px;
+    color: var(--text-primary-color);
+    border: 1px solid var(--text-primary-color);
+}
+
+.earchArea {
+    width: 100%;
+    padding: 10px;
+}
+
+.loader-movie-detail {
+
+    height: 300px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.loader {
+    border: 16px solid #f3f3f3;
+    /* Light grey */
+    border-top: 16px solid #3498db;
+    /* Blue */
+    border-radius: 50%;
+    width: 120px;
+    height: 120px;
+    animation: spin 2s linear infinite;
+}
+
+.carousel-item div:hover img {
+    -ms-transform: scale(2.0);
+    -webkit-transform: scale(2.0);
+    transform: scale(2.0);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.carousel-item div p {
+    width: 100%;
+    color: white;
+    text-align: center;
+    background-color: #000;
+    display: none;
+
+}
+
+.carousel-item div:hover p {
+    -ms-transform: scale(2.0);
+    -webkit-transform: scale(2.0);
+    transform: scale(2.0);
+    cursor: pointer;
+    display: inline;
+    z-index: 2;
+}
+
+.border-movie-info {
+    border-top: 2px solid #EA9215;
+}
+
+.poster img {
+    height: 500px;
+    width: 300px;
+    object-fit: contain;
+}
+
+.title {
+    display: inline;
+    width: 100%;
+    font-weight: 650;
+    font-size: 2em;
+    color: var(--text-primary-color)
+}
+
+.movie-meta-info {
+    background: var(--background-color-secondary);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.movie-dt {
+    color: #777777;
+    display: inline-block;
+    width: fit-content;
+    font-weight: 650;
+}
+
+.movie-dd {
+    display: inline;
+    width: fit-content;
+    color: #EA9215;
+    font-weight: 500;
+}
+
+.rating {
+    width: 100%;
+    border-radius: 5px;
+    background: var(--background-color-secondary);
+}
+
+.rating-title {
+    color: #EA9215;
+    display: inline;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.reviews {
+    color: var(--text-primary-color);
+}
+
+.plot {
+    background: var(--background-color-secondary);
+    width: 100%;
+    border-radius: 5px;
+}
+
+.plot-title {
+    color: #EA9215;
+    font-weight: 500;
+    font-size: x-large;
+}
+
+.plot-content {
+    color: var(--text-primary-color);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}

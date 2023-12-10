@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+        integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"
+        integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="Container">
+        <div class="Container">
+            <!--Header-->
+            <div class="header">
+                <div class="idSt">21120457_ Lê Minh Hoàng</div>
+                <div class="titleHeader">Movie Information</div>
+                <div class="setting">
+                    <div>21457</div>
+                    <div class="form-check form-switch" id="darkModeSwitch-form">
+                        <input class="form-check-input" type="checkbox" role="switch" id="darkModeSwitch">
+                        <label class="form-check-label" for="darkModeSwitch" id="iconMode"><i
+                                class="fa-regular fa-sun"></i></label>
+                    </div>
+                </div>
+            </div>
+
+
+            <!--Nav-->
+            <div class="navbar">
+                <a href="/" class="navTitle"><i class="fa-solid fa-house"></i></a>
+                <a href="/fav" class="fav" style="text-decoration: none;">21457</a>
+                <form class="d-flex" role="search" method="post" action="/search">
+                    <select name="type" class="form-select" required>
+                        <option value="actor">Actor</option>
+                        <option value="movie" selected>Movie</option>
+                    </select>
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search"
+                        name="keyword" required>
+                    <button class="btn btn-outline-success" type="submit">Search</button>
+                </form>
+            </div>
+
+            <div class="listMovie">
+                <div id="demo" class="carousel slide" data-bs-ride="carousel">
+                    <!-- Indicators/dots -->
+                    <div class="carousel-indicators">
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="0" class="active"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="1"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="2"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="3"></button>
+                        <button type="button" data-bs-target="#demo" data-bs-slide-to="4"></button>
+                    </div>
+                    <!-- The slideshow/carousel -->
+
+                    <div class="carousel-inner" style="margin-left: -12%;">
+                        21457{for movie in top5movies}
+
+                        <div class="carousel-item itemCarousel  21457{if 21457{movie.active}} active {else} ''  {/if}"
+                            style="position: relative;">
+                            <img class="rounded-2 d-block" src="21457{movie.image}" alt="21457{movie.id}"
+                                onclick="handleClick(this)" style="width: 25%;">
+                            <p
+                                style="color: white; position: absolute; z-index: 2; bottom: 19px; left: 3%; font-size: medium; font-weight: 600;">
+                                21457{movie.fulltitle}</p>
+                        </div>
+                        {/for}
+                    </div>
+
+                    <!-- Left and right controls/icons -->
+                    <button class="carousel-control-prev" type="button" data-bs-target="#demo"
+                        data-bs-slide="prev"><span class="carousel-control-prev-icon"></span></button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#demo"
+                        data-bs-slide="next"><span class="carousel-control-next-icon"></span></button>
+                </div>
+            </div>
+
+
+            <div class="topTitle">Top Box Office</div>
+            <div class="mostPopularFilm">
+                <div id="demo1" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner" style="display: flex; justify-content: flex-start;">
+                        21457{for m in topBoxOffice}
+                        <div class="carousel-item 21457{if 21457{m.active}} active {else} ''  {/if}"
+                            style="padding-top: 20px;">
+                            <div style="display: inline-block; width: 15%; margin-left: 15%;"><img
+                                    class="rounded d-block" src="21457{m.img1}" alt="21457{m.id1}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                            <div style="display: inline-block; width: 15%; margin-left: 10%;"><img
+                                    class="rounded d-block" src="21457{m.img2}" alt="21457{m.id2}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                            <div style="display: inline-block; width: 15%; margin-left: 10%;"><img
+                                    class="rounded d-block" src="21457{m.img3}" alt="21457{m.id3}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                        </div>
+                        {/for}
+                    </div><!-- Left and right controls/icons --><button class="carousel-control-prev" type="button"
+                        data-bs-target="#demo1" data-bs-slide="prev"><span
+                            class="carousel-control-prev-icon"></span></button><button class="carousel-control-next"
+                        type="button" data-bs-target="#demo1" data-bs-slide="next"><span
+                            class="carousel-control-next-icon"></span></button>
+                </div>
+            </div>
+            <div class="topTitle">Top Favorites</div>
+            <div class="topRating">
+                <div id="demo2" class="carousel slide" data-bs-ride="carousel">
+
+                    <!-- The slideshow/carousel -->
+                    <div class="carousel-inner" style="display: flex; justify-content: flex-start;">
+                        21457{for m in topfav}
+                        <div class="carousel-item 21457{if 21457{m.active}} active {else} ''  {/if}"
+                            style="padding-top: 20px;">
+                            <div style="display: inline-block; width: 15%; margin-left: 15%;"><img
+                                    class="rounded d-block" src="21457{m.img1}" alt="21457{m.id1}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                            <div style="display: inline-block; width: 15%; margin-left: 10%;"><img
+                                    class="rounded d-block" src="21457{m.img2}" alt="21457{m.id2}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                            <div style="display: inline-block; width: 15%; margin-left: 10%;"><img
+                                    class="rounded d-block" src="21457{m.img3}" alt="21457{m.id3}" style="width: 100%;"
+                                    onclick="handleClick(this)"><!--v-if--></div>
+                        </div>
+                        {/for}
+                    </div><!-- Left and right controls/icons --><button class="carousel-control-prev" type="button"
+                        data-bs-target="#demo2" data-bs-slide="prev"><span
+                            class="carousel-control-prev-icon"></span></button><button class="carousel-control-next"
+                        type="button" data-bs-target="#demo2" data-bs-slide="next"><span
+                            class="carousel-control-next-icon"></span></button>
+                </div>
+            </div><!--v-if--><!--v-if--><!--v-if-->
+            <div class="header" style="height: 40px;">
+                <div class="idSt">21120457</div>
+                <div class="titleHeader">Movies info</div>
+                <div class="setting">
+                    <div>21457</div>
+                </div>
+            </div>
+        </div>
+        <form name="myform" method="post" action="">
+            <input hidden id="id" name="id" value="">
+        </form>
+</body>
+
+</html>
+<script>
+    const darkModeSwitch = $('#darkModeSwitch')
+    function getMediaPreference() {
+        const hasDarkPreference = window.matchMedia(
+            "(prefers-color-scheme: dark)"
+        ).matches;
+        if (hasDarkPreference) {
+            return "dark-theme"
+        } else {
+            return "light-theme"
+        }
+    }
+    // lấy màu nền lưu ở trạng thái trước
+    function getTheme() {
+        return localStorage.getItem("user-theme")
+    }
+    let icon = document.getElementById("iconMode");
+    function setTheme(theme) {
+        localStorage.setItem("user-theme", theme)
+
+        this.userTheme = theme
+        document.documentElement.className = theme
+
+        const darkModeSwitch = document.getElementById("darkModeSwitch")
+        if (theme === "dark-theme") {
+            icon.innerHTML = `<i class="fa-regular fa-moon"></i>`
+            darkModeSwitch.checked = true
+        } else {
+            icon.innerHTML = `<i class="fa-regular fa-sun"></i>`;
+            darkModeSwitch.checked = false
+        }
+    }
+    const initUserTheme = getTheme() || getMediaPreference()
+    setTheme(initUserTheme)
+    function toggleTheme() {
+        const activeTheme = localStorage.getItem("user-theme")
+        if (activeTheme === "light-theme") {
+            this.setTheme("dark-theme")
+        } else {
+            this.setTheme("light-theme")
+        }
+    }
+    $(darkModeSwitch).change(function (e) {
+        e.preventDefault();
+        toggleTheme();
+    });
+
+    var myform = document.forms['myform']
+    var ip = document.getElementById('id');
+    function handleClick(img) {
+        console.log(img.getAttribute("alt"));
+        let id = img.getAttribute("alt");
+        // console.log(ip);
+        ip.value = id;
+        // window.location.href = '/detailMovie/' + id;
+        myform.action = '/detailMovie';
+        //  console.log(myform)
+        // console.log(id)
+        myform.submit();
+    }
+</script>
